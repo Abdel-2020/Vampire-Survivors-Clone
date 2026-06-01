@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://ceo0tq8l4cfo4"]
+
+[ext_resource type="Script" uid="uid://dbmk4q112m344" path="res://scenes/Weapons/Bible/bible_weapon.gd" id="1_w3ref"]
+[ext_resource type="Texture2D" uid="uid://c2j1816kwal8m" path="res://Assets/Holy_Book.png" id="2_uqwj3"]
+
+[node name="Bible_Parent" type="Node2D" unique_id=924073761]
+script = ExtResource("1_w3ref")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1731782630]
+texture_filter = 1
+texture = ExtResource("2_uqwj3")
