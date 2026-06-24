@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://ouyjx4gewlhr"]
+
+[ext_resource type="Script" uid="uid://dhk188antnmqv" path="res://scenes/Weapons/base_weapon.gd" id="1_uo8j7"]
+
+[node name="BaseWeapon" type="Area2D" unique_id=795230109]
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("1_uo8j7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1356716583]
+
+[node name="WeaponTimer" type="Timer" parent="." unique_id=1039619566]
+autostart = true

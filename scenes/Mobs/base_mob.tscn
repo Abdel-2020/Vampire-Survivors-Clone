@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cqywx06yy8gav"]
+
+[ext_resource type="Script" uid="uid://ls2rx7rcct7e" path="res://scenes/Mobs/base_mob.gd" id="1_jqjjj"]
+[ext_resource type="PackedScene" uid="uid://dxid8sp7tv8qh" path="res://scenes/Drops/xp_gem.tscn" id="2_n8b07"]
+
+[node name="BaseMob" type="Area2D" unique_id=1841978140]
+z_index = 2
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_jqjjj")
+xp_gem_scene = ExtResource("2_n8b07")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1567621204]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=627849798]

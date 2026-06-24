@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dl7rg6bg5777d"]
+
+[ext_resource type="Texture2D" uid="uid://bqeo3t5qssd2k" path="res://Assets/chest.png" id="1_6s7ci"]
+[ext_resource type="Script" uid="uid://s143fqqcc3g7" path="res://scenes/Drops/chest.gd" id="1_d42pm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6s7ci"]
+
+[node name="Chest" type="Area2D" unique_id=697882445]
+collision_mask = 2
+script = ExtResource("1_d42pm")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=835226135]
+texture_filter = 3
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_6s7ci")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=292764855]
+shape = SubResource("RectangleShape2D_6s7ci")

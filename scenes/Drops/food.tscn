@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://b3h6fgo753sh"]
+
+[ext_resource type="Script" uid="uid://c4cmrcqx61ikm" path="res://scenes/Drops/food_drop.gd" id="1_g2k08"]
+[ext_resource type="Texture2D" uid="uid://bh4seshltgnem" path="res://Assets/food.png" id="1_w2pfw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w2pfw"]
+
+[node name="Food" type="Area2D" unique_id=1819713085]
+collision_mask = 2
+script = ExtResource("1_g2k08")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1092383053]
+texture_filter = 5
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_w2pfw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1577771224]
+shape = SubResource("RectangleShape2D_w2pfw")

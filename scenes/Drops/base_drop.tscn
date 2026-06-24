@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://c17jjsivv4run"]
+
+[ext_resource type="Script" uid="uid://c6qg2bqtolqow" path="res://scenes/Drops/base_drop.gd" id="1_dg3km"]
+
+[node name="BaseDrop" type="Area2D" unique_id=1740372109]
+collision_mask = 2
+script = ExtResource("1_dg3km")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1123892581]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1379249162]

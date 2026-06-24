@@ -15,6 +15,10 @@ run/main_scene="uid://cayfpkthbntme"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+DiscordRPCLoader="*uid://ep6cvhmbliis"
+
 [debug]
 
 gdscript/warnings/untyped_declaration=2
@@ -26,7 +30,7 @@ window/size/viewport_height=1080
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot_vim/plugin.cfg")
+enabled=PackedStringArray("res://addons/discord-rpc-gd/plugin.cfg", "res://addons/godot_vim/plugin.cfg")
 
 [input]
 
@@ -58,6 +62,13 @@ move_down={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":12,"pressure":0.0,"pressed":true,"script":null)
 ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="World"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="Mobs"
+2d_physics/layer_4="Weapons"
 
 [physics]
 

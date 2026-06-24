@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dlcj5ixm6f722"]
+
+[ext_resource type="Script" uid="uid://cbo8d1702ie6c" path="res://scenes/mob_spawner.gd" id="1_ljl1v"]
+[ext_resource type="PackedScene" uid="uid://cewvgowk4vgo4" path="res://scenes/Mobs/bat.tscn" id="2_m10af"]
+[ext_resource type="PackedScene" uid="uid://dl7rg6bg5777d" path="res://scenes/Drops/chest.tscn" id="3_7a1wa"]
+
+[node name="MobSpawner" type="Node2D" unique_id=1961421315]
+script = ExtResource("1_ljl1v")
+mob_scene = ExtResource("2_m10af")
+consum = ExtResource("3_7a1wa")
+
+[node name="Timer" type="Timer" parent="." unique_id=2029624160]
+autostart = true

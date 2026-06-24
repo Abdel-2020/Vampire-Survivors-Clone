@@ -7,8 +7,11 @@
 size = Vector2(16, 32)
 
 [node name="Bible_Weapon" type="Area2D" unique_id=1064659266]
-collision_layer = 4
+collision_layer = 8
+collision_mask = 4
 script = ExtResource("2_7ov83")
+speed = 10.0
+damage = 50
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1731782630]
 texture_filter = 1
@@ -16,3 +19,7 @@ texture = ExtResource("2_y0chw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1508193839]
 shape = SubResource("RectangleShape2D_x2xy0")
+
+[node name="WeaponTimer" type="Timer" parent="." unique_id=51143484]
+wait_time = 3.0
+autostart = true

@@ -1,27 +1,46 @@
+# Player Class
 extends Area2D
+signal dead
 
-# Create instance of a scene.
-var Weapon: PackedScene = preload("res://scenes/Weapons/Bible/bible_weapon.tscn")
+# Variables
+@export var max_hit_points: int = 100
+@export var hit_points:     int = 100
+@export var speed:          int = 120
 
-# variable
-@export var speed: int = 100
-var screen_size: Vector2
+var Starting_Weapon:  PackedScene = preload("res://scenes/Weapons/Bible/bible_weapon.tscn")
+var screen_size:      Vector2
 
-# signals
-# Called when the node enters the scene tree for the first time.
+# Increase HP (called when player picks up a health consum)
+func increase_hit_points(value: int) -> void:
+	hit_points += value
+	hit_points = min(hit_points, max_hit_points)
+	print(hit_points)
+
+func reduce_hit_points(damage: int) -> void:
+	hit_points -= damage
+	if hit_points <= 0:
+		dead.emit()
+		print("Dead")	
+		queue_free()
+	print("Taking damage: ", damage)
+
+func _on_new_weapon(weapon: Area2D) -> void:
+	print("New weapon: ", weapon, " added as child node")
+	add_child(weapon)
+
 func _ready() -> void:
+	$Inventory.new_weapon.connect(_on_new_weapon)
 	screen_size = get_viewport_rect().size
-	
-	if Weapon:
-		var weapon_instance: Area2D = Weapon.instantiate()
-		add_child(weapon_instance)
+
+	if Starting_Weapon:
+		var weapon_instance: Area2D = Starting_Weapon.instantiate()
+		$Inventory.store_weapon(weapon_instance)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:	
 	# Initialize and Reset Velocity Vector
-	var velocity: Vector2 = Vector2.ZERO	
-	
+	var velocity: Vector2 = Vector2.ZERO		
 	# If the player is pressing a direction,
 	# set the vector to that direction.
 	if Input.is_action_pressed("move_right"):
@@ -40,7 +59,7 @@ func _process(delta: float) -> void:
 	# Apply speed to the direction, normalize the vector.
 	if velocity.length() > 0:
 		# Normalize the vector		
-		velocity = velocity.normalized() * (speed)
+		velocity = velocity.normalized() * speed
 
 		# Play animations	
 		if velocity.x != 0 and velocity.y != 0:
@@ -65,4 +84,4 @@ func _process(delta: float) -> void:
 		#$AnimatedSprite2D.stop()
 
 	position += velocity * delta
-	position = position.clamp(Vector2.ZERO, screen_size)	
+	position = position.clamp(Vector2.ZERO, screen_size)

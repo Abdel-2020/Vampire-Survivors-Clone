@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dxid8sp7tv8qh"]
+
+[ext_resource type="Script" uid="uid://csbv322yx4nb8" path="res://scenes/Drops/xp_gem.gd" id="1_ahnl1"]
+[ext_resource type="Texture2D" uid="uid://bn8dtdtta3pf3" path="res://Assets/xp_gem.png" id="1_qq5dk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ahnl1"]
+radius = 5.0
+height = 25.0
+
+[node name="XpGem" type="Area2D" unique_id=2065386628]
+collision_mask = 2
+script = ExtResource("1_ahnl1")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1658644884]
+texture_filter = 3
+position = Vector2(1.1920929e-07, -4.7683716e-07)
+scale = Vector2(1.5546875, 1.40625)
+texture = ExtResource("1_qq5dk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=19284914]
+shape = SubResource("CapsuleShape2D_ahnl1")

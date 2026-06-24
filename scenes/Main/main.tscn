@@ -1,15 +1,23 @@
 [gd_scene format=3 uid="uid://cayfpkthbntme"]
 
-[ext_resource type="PackedScene" uid="uid://cewvgowk4vgo4" path="res://scenes/Mobs/mob.tscn" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://7hwu4ffyspun" path="res://scenes/Main/main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://2xctlhhi0xvm" path="res://scenes/Player/player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://dxid8sp7tv8qh" path="res://scenes/Drops/xp_gem.tscn" id="2_8gcrf"]
+[ext_resource type="PackedScene" uid="uid://dlcj5ixm6f722" path="res://scenes/mob_spawner.tscn" id="3_px18m"]
 
 [node name="Main" type="Node" unique_id=553178399]
 script = ExtResource("1_h2yge")
-
-[node name="Mob" parent="." unique_id=1535542582 instance=ExtResource("1_0xm2m")]
-position = Vector2(216, 64)
-Player_Path = NodePath("../Player")
+xp_gem_scene = ExtResource("2_8gcrf")
 
 [node name="Player" parent="." unique_id=32510438 instance=ExtResource("1_ig7tw")]
 position = Vector2(88, 160)
+max_hit_points = null
+hit_points = null
+speed = null
+
+[node name="MobSpawner" parent="." unique_id=1961421315 node_paths=PackedStringArray("player") instance=ExtResource("3_px18m")]
+player = NodePath("../Player")
+
+[node name="Node" type="Node" parent="." unique_id=1952286368]
+
+[connection signal="child_entered_tree" from="MobSpawner" to="." method="_on_mob_spawner_child_entered_tree"]
